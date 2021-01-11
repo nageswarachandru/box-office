@@ -28,7 +28,7 @@ const Show = () => {
   useEffect(() => {
 
     let isMounted = true;
-    apiGet(`/shows/${id}1?embed[]=seasons&embed[]=cast`).then(results => {
+    apiGet(`/shows/${id}?embed[]=seasons&embed[]=cast`).then(results => {
         if(isMounted){
           dispatch({type: 'FETCH_SUCCESS',show : results})
         }
