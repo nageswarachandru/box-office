@@ -30,7 +30,7 @@ function usePersistedReducer(reducer,initialState,key){
 }
 
 export function useShows(key = 'shows'){
-  return usePersistedReducer(showsReducer,[],key)
+  return usePersistedReducer(showsReducer, [],key)
 }
 
 export function useLastQuery(key = 'lastQuery'){
