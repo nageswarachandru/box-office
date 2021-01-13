@@ -68,7 +68,7 @@ const Home = () => {
       
 
       <SearchButtonWrapper>
-      <button type = 'button' onClick = {onSearch}>Serach</button></SearchButtonWrapper>
+      <button type = 'button' onClick = {onSearch}>Search</button></SearchButtonWrapper>
       {RenderResults()}
     </MainPageLayout>
   )
