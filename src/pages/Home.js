@@ -1,10 +1,12 @@
 /* eslint-disable arrow-body-style */
 import React,{ useState } from 'react'
 import ActorGrid from '../components/actor/ActorGrid';
+import CustomRadio from '../components/CustomRadio';
 import MainPageLayout from '../components/MainPageLayout'
 import ShowGrid from '../components/show/ShowGrid';
 import {apiGet} from '../misc/config';
 import { useLastQuery } from '../misc/custom-hooks';
+import { RadioInputsWrapper, SearchButtonWrapper, SearchInput } from './Home.styled';
 
 const Home = () => {
   const [input,setInput] = useLastQuery();
@@ -45,18 +47,28 @@ const Home = () => {
   
   return (
     <MainPageLayout>
-      <input type = "text" placeholder = "searching for something" onChange = {onChangeInput} onKeyDown = {onKeyDown} value = {input}/>
-      <div>
-        <label htmlFor = "show-search">
-          shows
-          <input id = "show-search" type="radio" value = "shows" checked = {isSearchShows} onChange = {onRadioChange}/>
-        </label>
-        <label htmlFor = "actor-search">
-          actors
-        <input id = "actor-search" type="radio" value = "people" checked = {!isSearchShows}onChange = {onRadioChange}/>
-        </label>
-      </div>
-      <button type = 'button' onClick = {onSearch}>Serach</button>
+      <SearchInput type = "text" placeholder = "searching for something" onChange = {onChangeInput} onKeyDown = {onKeyDown} value = {input}/>
+      <RadioInputsWrapper>
+        <div>
+
+          <CustomRadio
+          label ="Shows"
+          input id = "show-search" value = "shows" checked = {isSearchShows} onChange = {onRadioChange} 
+           />
+
+        </div>
+        <div>
+        <CustomRadio
+          label ="Actors"
+          input id = "actor-search" value = "people" checked = {!isSearchShows}onChange = {onRadioChange}
+           />
+        </div>
+        
+      </RadioInputsWrapper>
+      
+
+      <SearchButtonWrapper>
+      <button type = 'button' onClick = {onSearch}>Serach</button></SearchButtonWrapper>
       {RenderResults()}
     </MainPageLayout>
   )

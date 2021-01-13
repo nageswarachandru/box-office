@@ -20,7 +20,7 @@ const ShowGrid = ( {data} ) => {
                dispatchStarred({type:'REMOVE', showId : show.id});
              }
              else{
-               dispatchStarred({type : 'ADD', showId : show.Id });
+               dispatchStarred({type : 'ADD', showId : show.id });
              }
            };
 
